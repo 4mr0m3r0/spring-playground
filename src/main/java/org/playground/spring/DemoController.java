@@ -1,17 +1,30 @@
-package org.playground.spring.rest;
+package org.playground.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class DemoRestController {
+public class DemoController {
 
     @Value("${coach.name}")
     private String coachName;
 
     @Value("${team.name}")
     private String teamName;
+
+    private Coach myCoach;
+
+    @Autowired
+    public DemoController(Coach myCoach) {
+        this.myCoach = myCoach;
+    }
+
+    @GetMapping("/dailyworkout")
+    public String dailyWorkout() {
+        return myCoach.getDailyWorkout();
+    }
 
     @GetMapping("/teaminfo")
     public String getTeamInfo() {
