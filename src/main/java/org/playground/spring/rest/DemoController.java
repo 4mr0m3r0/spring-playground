@@ -1,5 +1,6 @@
-package org.playground.spring;
+package org.playground.spring.rest;
 
+import org.playground.spring.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,14 @@ public class DemoController {
     private Coach myCoach;
 
     @Autowired
-    public DemoController(Coach myCoach) {
-        this.myCoach = myCoach;
+    public void setCoach(Coach coach) {
+        this.myCoach = coach;
     }
+
+//    @Autowired
+//    public DemoController(Coach myCoach) {
+//        this.myCoach = myCoach;
+//    }
 
     @GetMapping("/dailyworkout")
     public String dailyWorkout() {
