@@ -30,6 +30,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+// TODO: Currently not working. Try to make it work. https://github.com/spring-projects/spring-batch/wiki/Spring-Batch-5.0-Migration-Guide
 @Configuration
 @EnableBatchProcessing
 public class BatchConfiguration {
